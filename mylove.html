@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <title> My One and Only ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffefff, #ffe6f0);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      color: #5a2a3c;
+      margin-bottom: 60px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    .hero img {
+      width: 100%;
+      max-height: 800px;
+      object-fit: cover;
+      border-radius: 10px;
+      filter: brightness(0.8);
+    }
+    .hero-text {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-top: 15px;
+      color: #b03c67;
+      text-shadow: 1px 1px 4px rgba(255, 182, 193, 0.9);
+      user-select: none;
+    }
+
+    .photos-section {
+      margin-top: 40px;
+    }
+    .photos-section figure {
+      margin: 0;
+    }
+    .photos-section img {
+      width: 100%;
+      height: 800px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(231, 84, 128, 0.5);
+      transition: transform 0.3s ease;
+    }
+    .photos-section img:hover {
+      transform: scale(1.03);
+    }
+    .photos-section figcaption {
+      margin-top: 8px;
+      font-style: italic;
+      color: #b56a81;
+      text-align: center;
+      user-select: none;
+      font-size: 1rem;
+    }
+
+    .love-message {
+      max-width: 700px;
+      margin: 40px auto 20px;
+      padding: 20px;
+      background: #ffe4e1;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(231, 84, 128, 0.3);
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #6b2e4a;
+      text-align: center;
+      font-family: 'Georgia', serif;
+    }
+
+    .random-button {
+      display: block;
+      margin: 25px auto 15px;
+      font-weight: 600;
+      user-select: none;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(231,84,128,0.5);
+    }
+
+    /* Floating heart animation */
+    .heart {
+      width: 15px;
+      height: 15px;
+      background: #e75480;
+      position: absolute;
+      top: 100%;
+      animation: float 5s linear infinite;
+      opacity: 0.7;
+      transform: rotate(45deg);
+      pointer-events: none;
+      z-index: 9999;
+    }
+    .heart::before, .heart::after {
+      content: "";
+      width: 15px;
+      height: 15px;
+      background: #e75480;
+      border-radius: 50%;
+      position: absolute;
+    }
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+    .heart::after {
+      left: -7.5px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    /* Music button styling with Bootstrap */
+    #music-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    #music-btn.btn-circle {
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      font-size: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(231, 84, 128, 0.5);
+      cursor: pointer;
+      user-select: none;
+      background-color: #e75480;
+      border: none;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    #music-btn.btn-circle:hover {
+      background-color: #c43d68;
+    }
+
+    /* Random reason text */
+    .random-reason {
+      max-width: 500px;
+      margin: 10px auto 40px;
+      font-size: 1.4rem;
+      color: #b03c67;
+      font-weight: 700;
+      text-align: center;
+      min-height: 56px;
+      user-select: none;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background music -->
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Music button with Bootstrap and icon -->
+  <button id="music-btn" class="btn btn-danger btn-circle" title="Play Music" onclick="document.getElementById('bg-music').play()">
+    <i class="bi bi-music-note-beamed"></i>
+  </button>
+
+  <!-- Floating hearts -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+
+  <!-- Couple photo -->
+  <section class="hero container">
+    <img src="couple.jpg" alt="Couple Photo" />
+    <div class="hero-text"> My One and Only ❤️</div>
+  </section>
+
+  <!-- Her photos side by side with captions -->
+  <section class="photos-section container">
+    <div class="row mt-4 g-4">
+      <div class="col-md-6">
+        <figure>
+          <img src="her1.jpg" alt="Her Smile Photo" />
+          <figcaption>That smile makes my day better😘</figcaption>
+        </figure>
+      </div>
+      <div class="col-md-6">
+        <figure>
+          <img src="her2.jpg" alt="Her Body Shot from Behind" />
+          <figcaption>A beautiful reflection of My babe (big ass cant see ᕙ⁠(⁠ ͡⁠°⁠ ͜⁠ʖ⁠ ͡⁠°⁠)⁠ᕗ)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Love message -->
+  <section class="love-message container">
+    <p>
+      Every moment with you is a beautiful chapter of my life.  
+      Your laughter is my favorite melody, and your presence is my greatest comfort.  
+      I love you more than words can say, today and always.
+    </p>
+  </section>
+
+  <!-- Random reason button -->
+  <button class="btn btn-danger btn-lg rounded-pill random-button" onclick="showRandomReason()">
+    Show Me a Reason Why I Love You
+  </button>
+
+  <div id="randomReason" class="random-reason">Click the button above!</div>
+
+  <script>
+    const reasons = [
+      "You always support me.",
+      "Your smile lights up my day.",
+      "You’re kind to everyone.",
+      "You listen to me even when I ramble.",
+      "You make me feel safe.",
+      "You love me for who I am.",
+      "You’re so smart and humble.",
+      "You remember the little things.",
+      "You make me laugh even on bad days.",
+      "You look cute even when angry."
+    ];
+
+    function showRandomReason() {
+      const idx = Math.floor(Math.random() * reasons.length);
+      document.getElementById("randomReason").innerText = reasons[idx];
+    }
+  </script>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<footer class="text-center mb-4" style="color: #b03c67; font-style: italic; user-select: none;">
+  by Her BoyFriend Lover <strong>KOKO</strong>
+</footer>
+</html>
